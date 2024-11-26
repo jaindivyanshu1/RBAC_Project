@@ -246,3 +246,32 @@ ul.messages * {
 .messages .info {
   background-color: #93c5fd;
 }
+
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0;
+}
+
+#search-input {
+  width: 450px; /* Increased width */
+  padding: 12px 16px; /* Increased padding for better aesthetics */
+  border-radius: 12px; /* Softer rounded corners */
+  border: 2px solid #d1d5db;
+  font-size: 1.1rem; /* Slightly larger font size */
+  background-color: #f9fafb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: all 0.3s ease; /* Smooth interaction transitions */
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #db2777;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(219, 39, 119, 0.2); /* Highlighted shadow */
+}
+
+#search-input::placeholder {
+  color: #9ca3af; /* Muted placeholder color */
+  font-style: italic;
+}

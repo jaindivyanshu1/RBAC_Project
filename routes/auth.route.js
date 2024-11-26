@@ -2,24 +2,25 @@ const router = require('express').Router()
 const passport = require('passport')
 const User = require('../models/user.model')
 const {body, validationResult} = require('express-validator')
+const connectEnsureLogin = require('connect-ensure-login')
 
 
-router.get('/login', async (req, res, next) => {
+router.get('/login', connectEnsureLogin.ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
     res.render('login')
 })
 
-router.post('/login', passport.authenticate('local',{
+router.post('/login', connectEnsureLogin.ensureLoggedOut({redirectTo: '/'}), passport.authenticate('local',{
     successReturnToOrRedirect: '/',
     failureRedirect: '/auth/login',
     failureFlash: true
 }))
 
-router.get('/register', async (req, res, next) => {
+router.get('/register', connectEnsureLogin.ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
     // res.render('register', {messages})
     res.render('register')
 })
 
-router.post('/register', [
+router.post('/register', connectEnsureLogin.ensureLoggedOut({redirectTo: '/'}), [
     body('email').trim().isEmail().withMessage('Email must be a valid email').normalizeEmail().toLowerCase(),
     body('password').trim().isLength(8).withMessage('Password Length is too short, please use atleast 8 character'),
     body('password2').custom((value, {req})=>{
@@ -61,7 +62,7 @@ router.post('/register', [
 
 
 
-router.get('/logout', async (req, res, next) => {
+router.get('/logout', connectEnsureLogin.ensureLoggedIn({redirectTo: '/'}), async (req, res, next) => {
     req.logOut(err => {
         if (err) {
             return next(err); // Handle errors during logout

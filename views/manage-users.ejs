@@ -1,0 +1,77 @@
+<%- include ('layouts/header') %>
+
+<h1 class="table">Manage Users</h1>
+
+<!-- Search bar -->
+<div class="search-container">
+  <input 
+    type="text" 
+    id="search-input" 
+    placeholder="Search by email" 
+    onkeyup="filterTable()"
+  />
+</div>
+
+<!-- Message for no matching results -->
+<div id="no-results-message" style="display: none; text-align: center; color: #f87171; margin: 16px 0;">
+  Enter a valid email, no results found.
+</div>
+
+<table class="table" id="user-table">
+  <thead>
+    <th>id</th>
+    <th>email</th>
+    <th>role</th>
+  </thead>
+  <tbody>
+    <% users.forEach(user => { %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><a href="/admin/user/<%= user.id %>"><%= user.email %></a></td>
+      <td>
+        <form
+          action="/admin/update-role"
+          method="post"
+          class="manage-user-form"
+        >
+          <input type="hidden" name="id" value="<%= user.id %>" />
+          <select name="role" id="role">
+            <option value="ADMIN" <%= user.role === 'ADMIN' ? 'selected' : '' %> >Admin</option>
+            <option value="MODERATOR" <%= user.role === 'MODERATOR' ? 'selected' : '' %>>Moderator</option>
+            <option value="CLIENT" <%= user.role === 'CLIENT' ? 'selected' : '' %>>Client</option>
+          </select>
+          <input type="submit" value="update">
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<script>
+  function filterTable() {
+    const searchValue = document.getElementById('search-input').value.toLowerCase();
+    const rows = document.querySelectorAll('#user-table tbody tr');
+    let hasResults = false;
+
+    rows.forEach(row => {
+      const email = row.querySelector('td:nth-child(2) a').textContent.toLowerCase();
+      if (email.includes(searchValue)) {
+        row.style.display = '';
+        hasResults = true;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    // Show or hide the no-results message
+    const noResultsMessage = document.getElementById('no-results-message');
+    if (!hasResults) {
+      noResultsMessage.style.display = 'block';
+    } else {
+      noResultsMessage.style.display = 'none';
+    }
+  }
+</script>
+
+<%- include ('layouts/footer') %>
