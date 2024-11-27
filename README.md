@@ -12,15 +12,17 @@ The **RBAC (Role-Based Access Control) Project** is a system that allows adminis
 ### Demo
 #### Screenshots:
 
-![Dashboard Screenshot](https://via.placeholder.com/800x400?text=RBAC+Dashboard)  
-*Dashboard showcasing role-based activity.*
+![Home](./images/home.png)  
+*Home showcasing role-based activity.*
 
-![User Management](https://via.placeholder.com/800x400?text=User+Management)  
-*Interactive user-role management interface.*
+![Home](./images/login.png)  
+*Login role-based activity.*
 
-#### Video Walkthrough:
-[![RBAC Project Video](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)  
-*Click to view the demo.*
+![Home](./images/register.png)  
+*Register user as a Client.*
+
+![Home](./images/admin_panel.png)  
+*Admin Panel role-based activity.*
 
 ---
 
@@ -76,4 +78,4 @@ Follow these simple steps to set up and run the RBAC project:
     - Create an issue on my Github Account.
     - Email: jaindivyanshu.personal@gmail.com
 
-Thank you for supporting our project! 🚀
+Thank you for supporting my project! 🚀

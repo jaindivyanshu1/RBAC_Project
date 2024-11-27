@@ -15,6 +15,8 @@ router.post('/login', connectEnsureLogin.ensureLoggedOut({redirectTo: '/'}), pas
     failureFlash: true
 }))
 
+
+
 router.get('/register', connectEnsureLogin.ensureLoggedOut({redirectTo: '/'}), async (req, res, next) => {
     // res.render('register', {messages})
     res.render('register')

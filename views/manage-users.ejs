@@ -19,15 +19,34 @@
 
 <table class="table" id="user-table">
   <thead>
-    <th>id</th>
-    <th>email</th>
-    <th>role</th>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Status</th>
   </thead>
   <tbody>
     <% users.forEach(user => { %>
     <tr>
       <td><%= user.id %></td>
       <td><a href="/admin/users/<%= user.id %>"><%= user.email %></a></td>
+      
+      <td>
+        <!-- Toggle Button for Status -->
+        <form
+          action="/admin/update-status"
+          method="post"
+          class="status-form"
+        >
+          <input type="hidden" name="id" value="<%= user.id %>" />
+          <input 
+            type="checkbox" 
+            name="status" 
+            class="toggle-status" 
+            <%= user.status ? 'checked' : '' %> 
+            onchange="this.form.submit()"
+          >
+        </form>
+      </td>
       <td>
         <form
           action="/admin/update-role"
@@ -36,11 +55,11 @@
         >
           <input type="hidden" name="id" value="<%= user.id %>" />
           <select name="role" id="role">
-            <option value="ADMIN" <%= user.role === 'ADMIN' ? 'selected' : '' %> >Admin</option>
+            <option value="ADMIN" <%= user.role === 'ADMIN' ? 'selected' : '' %>>Admin</option>
             <option value="MODERATOR" <%= user.role === 'MODERATOR' ? 'selected' : '' %>>Moderator</option>
             <option value="CLIENT" <%= user.role === 'CLIENT' ? 'selected' : '' %>>Client</option>
           </select>
-          <input type="submit" value="update">
+          <input type="submit" value="Update">
         </form>
       </td>
     </tr>

@@ -75,6 +75,35 @@ router.post('/update-role', async (req, res, next) => {
     }
   });
   
+router.post('/update-status', async (req, res, next) => {
+  try {
+    const { id, status } = req.body;
+
+    // Check for a valid ID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      req.flash('error', 'Invalid user ID.');
+      return res.redirect('back');
+    }
+
+    // Prevent the admin from deactivating themselves
+    if (req.user.id === id) {
+      req.flash('error', 'Admins cannot deactivate themselves.');
+      return res.redirect('back');
+    }
+
+    // Update the user's status
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { status: status === 'on' }, // Checkbox sends "on" when checked
+      { new: true, runValidators: true }
+    );
+
+    req.flash('info', `User ${updatedUser.email}'s status updated successfully.`);
+    res.redirect('back');
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 module.exports = router

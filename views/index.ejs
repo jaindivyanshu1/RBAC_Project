@@ -1,29 +1,92 @@
 <%- include('./layouts/header') %>
 
-<h1 class="title">Role Based Access Control</h1>
-<div class="tutorial-info">
-  <ol class="tutorial-info">
-    <li><b>Express JS </b></li>
-    <li><b>EJS</b> templating engine</li>
-    <li>
-      <b>Styling — </b>custom CSS (you can use any like Bootstrap, Bulma,
-      Tailwind, etc...)
-    </li>
-    <li><b> PassportJS </b>local authentication(email, password)</li>
-    <li><b>Roles</b> (admin, moderator, client)</li>
-    <li><b>Authorization</b> (admin, moderator and user routes)</li>
-    <li><b>Mongoose</b> (ORM for MongoDB)</li>
-    <li>How to use <b>express sessions</b></li>
-    <li>
-      Using sessions to <b>persist login </b> after server reboot (using Mongo
-      Store)
-    </li>
-    <li><b>Redirect</b> to same page after login.</li>
-    <li><b>Validating</b> user input server side</li>
-    <li><b>Flash messages</b></li>
-    <li>Handling <b>HTTP error</b> (ex: 404, etc)</li>
-    <li>Somethings are always extra 😊</li>
-  </ol>
-</div>
+<main>
+  <h1 class="title">Role-Based Access Control (RBAC)</h1>
+  
+  <section class="roles-section">
+    <h2>Role Features</h2>
+    <div class="role-cards">
+      <% if (!user) { %>
+        <!-- If no one is logged in, show all roles -->
+        <div class="role-card">
+          <h3>Admin</h3>
+          <p>Admins have full control over the system, including managing users, roles, and permissions.</p>
+          <ul>
+            <li>Manage user accounts.</li>
+            <li>Assign and update roles.</li>
+            <li>Access all routes and data.</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <h3>Moderator</h3>
+          <p>Moderators oversee specific sections and ensure the system runs smoothly.</p>
+          <ul>
+            <li>Moderate content or users.</li>
+            <li>Access routes restricted to moderators and clients.</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <h3>Client</h3>
+          <p>Clients are end-users with limited access to services and personal content.</p>
+          <ul>
+            <li>View and manage their own data.</li>
+            <li>Limited access to public and private routes.</li>
+          </ul>
+        </div>
+      <% } else if (user.role === 'ADMIN') { %>
+        <!-- Show Admin Features -->
+        <div class="role-card">
+          <h3>Admin</h3>
+          <p>Admins have full control over the system, including managing users, roles, and permissions.</p>
+          <ul>
+            <li>Manage user accounts.</li>
+            <li>Assign and update roles.</li>
+            <li>Access all routes and data.</li>
+          </ul>
+        </div>
+      <% } else if (user.role === 'MODERATOR') { %>
+        <!-- Show Moderator Features -->
+        <div class="role-card">
+          <h3>Moderator</h3>
+          <p>Moderators oversee specific sections and ensure the system runs smoothly.</p>
+          <ul>
+            <li>Moderate content or users.</li>
+            <li>Access routes restricted to moderators and clients.</li>
+          </ul>
+        </div>
+      <% } else if (user.role === 'CLIENT') { %>
+        <!-- Show Client Features -->
+        <div class="role-card">
+          <h3>Client</h3>
+          <p>Clients are end-users with limited access to services and personal content.</p>
+          <ul>
+            <li>View and manage their own data.</li>
+            <li>Limited access to public and private routes.</li>
+          </ul>
+        </div>
+      <% } %>
+    </div>
+  </section>
+  <div class="tutorial-info">
+    <h2>About the Project</h2>
+    <p>
+      This project demonstrates the implementation of a robust Role-Based Access Control (RBAC) system. It includes the following features:
+    </p>
+    <ul class="tutorial-info">
+      <li><b>Express.js:</b> Backend framework for building APIs.</li>
+      <li><b>EJS:</b> Templating engine for dynamic web pages.</li>
+      <li><b>CSS Styling:</b> Custom CSS with responsive design for all screen sizes.</li>
+      <li><b>Passport.js:</b> Local authentication (email & password).</li>
+      <li><b>Role Management:</b> Admin, Moderator, and Client roles.</li>
+      <li><b>Authorization:</b> Routes secured by user roles.</li>
+      <li><b>Mongoose:</b> Database modeling with MongoDB.</li>
+      <li><b>Express Sessions:</b> Persistent login with Mongo Store.</li>
+      <li><b>Server-Side Validation:</b> Ensures data integrity.</li>
+      <li><b>Flash Messages:</b> For user feedback (e.g., login success, errors).</li>
+      <li><b>Custom Error Handling:</b> Handling HTTP errors like 404.</li>
+    </ul>
+  </div>
+
+
 
 <%- include('./layouts/footer') %>
