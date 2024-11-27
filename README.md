@@ -47,5 +47,33 @@ Follow these simple steps to set up and run the RBAC project:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/rbac-project.git
+   git clone https://github.com/jaindivyanshu1/RBAC_Project.git
+    ```
+    ```bash
    cd rbac-project
+   ```
+
+2. Install dependencies:
+
+    ```bash
+   npm install
+   ```
+
+3. Start the project:
+
+    ```bash
+   npm run dev
+   ```
+
+4. Open the application:
+
+    - Look for the terminal log that displays the running URL (e.g., http://localhost:3000).
+    - Press Ctrl + Click on the link in VS Code to open it in your default browser.
+
+### Provide Feedback
+    If you encounter any issues or have suggestions for improvement, please feel free to open an issue.
+    I appreciate your feedback and look forward to hearing from you.
+    - Create an issue on my Github Account.
+    - Email: jaindivyanshu.personal@gmail.com
+
+Thank you for supporting our project! 🚀
