@@ -31,7 +31,7 @@ nav > ul > li {
 nav > ul > li > a,
 a {
   text-decoration: none;
-  color: #db2777;
+  color: #1724ae;
   padding: 8px 16px;
   border-radius: 8px;
 }
@@ -100,7 +100,7 @@ form.lg-form {
 
 .lg-form input[type='submit'] {
   margin: 16px 0;
-  background-color: #db2777;
+  background-color: #1724ae;
   color: #fff;
   cursor: pointer;
 }
@@ -134,7 +134,7 @@ thead {
 
 thead tr {
   border-radius: 8px;
-  background-color: #db2777;
+  background-color: #1724ae;
   overflow: hidden;
 }
 
@@ -165,7 +165,7 @@ tbody tr td {
 
 .manage-user-form input[type='submit'] {
   background: transparent;
-  color: #db2777;
+  color: #1724ae;
   border: none;
   outline: none;
   padding: 8px 16px;
@@ -254,33 +254,28 @@ ul.messages * {
 }
 
 #search-input {
-  width: 450px; /* Increased width */
-  padding: 12px 16px; /* Increased padding for better aesthetics */
-  border-radius: 12px; /* Softer rounded corners */
+  width: 450px; 
+  padding: 12px 16px; 
+  border-radius: 12px; 
   border: 2px solid #d1d5db;
-  font-size: 1.1rem; /* Slightly larger font size */
+  font-size: 1.1rem;
   background-color: #f9fafb;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  transition: all 0.3s ease; /* Smooth interaction transitions */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: all 0.3s ease; 
 }
 
 #search-input:focus {
   outline: none;
-  border-color: #db2777;
+  border-color: #1724ae;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(219, 39, 119, 0.2); /* Highlighted shadow */
+  box-shadow: 0 4px 8px rgba(219, 39, 119, 0.2); 
 }
 
 #search-input::placeholder {
-  color: #9ca3af; /* Muted placeholder color */
+  color: #9ca3af; 
   font-style: italic;
 }
 
-
-
-/*bad mai*/
-
-/* Role Section Styles */
 .roles-section {
   margin: 32px 0;
   padding: 16px;
@@ -293,7 +288,7 @@ ul.messages * {
   text-align: center;
   margin-bottom: 24px;
   font-size: 1.8rem;
-  color: #db2777;
+  color: #1724ae;
 }
 
 .role-cards {
@@ -314,7 +309,7 @@ ul.messages * {
 .role-card h3 {
   margin-bottom: 8px;
   font-size: 1.5rem;
-  color: #db2777;
+  color: #1724ae;
 }
 
 .role-card p {
@@ -334,7 +329,6 @@ ul.messages * {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .roles-section h2 {
     font-size: 1.5rem;
@@ -349,7 +343,6 @@ ul.messages * {
   }
 }
 
-
 .toggle-status {
   appearance: none;
   width: 40px;
@@ -363,7 +356,7 @@ ul.messages * {
 }
 
 .toggle-status:checked {
-  background: #4caf50;
+  background: #1724ae;
 }
 
 .toggle-status::before {

@@ -61,9 +61,6 @@ router.post('/register', connectEnsureLogin.ensureLoggedOut({redirectTo: '/'}), 
     }
 })
 
-
-
-
 router.get('/logout', connectEnsureLogin.ensureLoggedIn({redirectTo: '/'}), async (req, res, next) => {
     req.logOut(err => {
         if (err) {

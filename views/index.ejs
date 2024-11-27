@@ -7,7 +7,6 @@
     <h2>Role Features</h2>
     <div class="role-cards">
       <% if (!user) { %>
-        <!-- If no one is logged in, show all roles -->
         <div class="role-card">
           <h3>Admin</h3>
           <p>Admins have full control over the system, including managing users, roles, and permissions.</p>
@@ -34,7 +33,6 @@
           </ul>
         </div>
       <% } else if (user.role === 'ADMIN') { %>
-        <!-- Show Admin Features -->
         <div class="role-card">
           <h3>Admin</h3>
           <p>Admins have full control over the system, including managing users, roles, and permissions.</p>
@@ -45,7 +43,7 @@
           </ul>
         </div>
       <% } else if (user.role === 'MODERATOR') { %>
-        <!-- Show Moderator Features -->
+        
         <div class="role-card">
           <h3>Moderator</h3>
           <p>Moderators oversee specific sections and ensure the system runs smoothly.</p>
@@ -55,7 +53,6 @@
           </ul>
         </div>
       <% } else if (user.role === 'CLIENT') { %>
-        <!-- Show Client Features -->
         <div class="role-card">
           <h3>Client</h3>
           <p>Clients are end-users with limited access to services and personal content.</p>

@@ -2,7 +2,6 @@
 
 <h1 class="table">Manage Users</h1>
 
-<!-- Search bar -->
 <div class="search-container">
   <input 
     type="text" 
@@ -11,8 +10,6 @@
     onkeyup="filterTable()"
   />
 </div>
-
-<!-- Message for no matching results -->
 <div id="no-results-message" style="display: none; text-align: center; color: #f87171; margin: 16px 0;">
   Enter a valid email, no results found.
 </div>
@@ -31,7 +28,6 @@
       <td><a href="/admin/users/<%= user.id %>"><%= user.email %></a></td>
       
       <td>
-        <!-- Toggle Button for Status -->
         <form
           action="/admin/update-status"
           method="post"

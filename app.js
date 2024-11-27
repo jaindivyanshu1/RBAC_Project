@@ -38,8 +38,8 @@ app.use(session({
         httpOnly: true
     },
     store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URI, // Connection string to MongoDB
-        dbName: process.env.DB_NAME,    // Optional: specify DB name
+        mongoUrl: process.env.MONGO_URI, 
+        dbName: process.env.DB_NAME,    
     }),
 }));
 // for passport JS auth
