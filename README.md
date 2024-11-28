@@ -71,8 +71,14 @@ Follow these simple steps to set up and run the RBAC project:
 
     - Look for the terminal log that displays the running URL (e.g., http://localhost:3000).
     - Press Ctrl + Click on the link in VS Code to open it in your default browser.
+  
+4. Credentials:
+
+    - For Admin:- First register with *admin@gmail.com* and provide password atleast 8 charecter long and then login with the same credentials.
+    - For Other:- Just register with valid email and password, then login with the same credentials.
 
 ### Provide Feedback
+
     If you encounter any issues or have suggestions for improvement, please feel free to open an issue.
     I appreciate your feedback and look forward to hearing from you.
     - Create an issue on my Github Account.
